@@ -586,6 +586,21 @@ addChar({id:'terra',name:'TERRA',title:'EARTH SHAPER',el:'earth',style:['CLOSE-M
  air:AIRA('AIR STONE',{aura:'earth'}),
  airB:AIRB('METEOR KNEE',{pose:'airkick',aura:'earth'}),
 }});
+// original look pass: each mage gets their own hair colour / signature traits (magic + moves unchanged)
+const LOOKS={
+ roku:{look:{hair:'spiky',face:'fierce',band:'#2a2a30'},pal:{hair:'#d8402a',hairD:'#8a2016',hairHi:'#ff8a4a',eye:'#ffb84a'}},
+ raiko:{look:{face:'calm'},pal:{hair:'#5fb8ff',hairD:'#2a6ab0',hairHi:'#c8ecff',eye:'#ffe14a'}},
+ bram:{look:{band:null},pal:{hair:'#1e1a22',hairD:'#0e0c12',hairHi:'#c02a2a'}},
+ sora:{pal:{hair:'#2a8a7a',hairD:'#145a4e',hairHi:'#5ac8b4'}},
+ maren:{pal:{hair:'#3a6ad8',hairD:'#24449a',hairHi:'#8ab4ff'}},
+ yoru:{look:{hair:'longTied',face:'calm'},pal:{hair:'#c8ccd8',hairD:'#8a90a0',hairHi:'#ffffff'}},
+ finn:{pal:{hair:'#a8482a',hairD:'#7a2e18',hairHi:'#d8784a'}},
+ vesna:{pal:{hair:'#3ac8b8',hairD:'#1e8a80',hairHi:'#8af0e4'}},
+ glint:{pal:{hair:'#e8e8f0',hairD:'#a8a8b8',hairHi:'#ffffff'}},
+ mira:{pal:{hair:'#5aa83a',hairD:'#3a7a22',hairHi:'#8ad86a'}},
+ aeon:{look:{hair:'short'},pal:{hair:'#9a9aa8',hairD:'#6a6a78',hairHi:'#d8d8e4'}},
+};
+for(const id in LOOKS){Object.assign(CH[id].look,LOOKS[id].look||{});Object.assign(CH[id].pal,LOOKS[id].pal||{})}
 const ROSTER=Object.keys(CH);
 const getMv=(f,k)=>(f.mode&&f.ch.modes&&f.ch.modes[f.mode.id]&&f.ch.modes[f.mode.id].moves[k])||f.ch.moves[k]||(k==='launch'?LAUNCH:null);
 function resolveMv(f,m){let n=0;while(m&&m.swap&&n++<3){const k2=m.swap(f);if(!k2)break;m=f.ch.moves[k2]}return m}
