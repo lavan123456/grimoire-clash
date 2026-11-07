@@ -1263,7 +1263,7 @@ function drawFightUI(){
  if(paused&&!NET.on)txt('PAUSED',160,80,16,'#fff')}
 function drawTitle(){if(!PX.back&&(frame>>5)%2)txt('SPELL FX DID NOT LOAD',160,160,8,'#ff8a8a');txt('GRIMOIRE',160,22,16,'#ff8a3a');txt('CLASH',160,42,24,'#5fd0ff');
  const items=['1P VS CPU','2P SAME KEYBOARD','ONLINE VS FRIEND','CPU VS CPU'];items.forEach((s,i)=>{const sel=i===menuI;txt((sel&&(frame>>4)%2?'> ':'  ')+s,160,96+i*13,8,sel?'#ffd84a':'#9a94b8')});
- txt('15 MAGES · 15 GRIMOIRES',160,140,8,'#8a86a8')}
+ txt('15 MAGES · 15 GRIMOIRES',160,156,8,'#8a86a8')}
 const PORT={};
 function portrait(id){if(PORT[id])return PORT[id];const f=mkFighter(id,0,true);renderBuf(f);const c=document.createElement('canvas');c.width=40;c.height=24;const g=c.getContext('2d');g.imageSmoothingEnabled=false;
  const top=84+f.ch.hy-f.ch.torso-25;g.drawImage(f.buf,48-22,top,40,24,0,0,40,24);return PORT[id]=c}
